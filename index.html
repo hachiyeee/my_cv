@@ -1,0 +1,410 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Yi-Wen Huang</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* Layout: sticky identity column (name, three-square mark from the CV, nav) beside one reading column of sections. */
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --card: #f0f2f6;
+  --ink: #1c2130;
+  --muted: #5c6475;
+  --rule: #dde1e8;
+  --yellow: #f2b51d;
+  --red: #e4572e;
+  --blue: #2a8fd0;
+  --accent: #1f6fa8;
+  --display: "Hanken Grotesk", "Noto Sans TC", system-ui, sans-serif;
+  --body: "Hanken Grotesk", "Noto Sans TC", system-ui, sans-serif;
+  --serif: "Literata", "Noto Serif TC", Georgia, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14171f; --surface: #1b1f29; --card: #232937; --ink: #e8eaf0; --muted: #9aa2b3; --rule: #2c3240;
+    --yellow: #f5c444; --red: #f07152; --blue: #4fa9e6; --accent: #7cc0ef; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14171f; --surface: #1b1f29; --card: #232937; --ink: #e8eaf0; --muted: #9aa2b3; --rule: #2c3240;
+  --yellow: #f5c444; --red: #f07152; --blue: #4fa9e6; --accent: #7cc0ef; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 2px; }
+
+.page {
+  max-width: 1080px; margin: 0 auto; padding-block: 56px 96px;
+  display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 64px;
+}
+aside { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 56px); align-self: start; display: flex; flex-direction: column; gap: 28px; }
+.mark { display: flex; gap: 4px; }
+.mark span { width: 18px; height: 18px; display: block; }
+.mark span:nth-child(1) { background: var(--yellow); }
+.mark span:nth-child(2) { background: var(--red); }
+.mark span:nth-child(3) { background: var(--blue); }
+.name { display: flex; flex-direction: column; gap: 2px; }
+.name .zh { font-size: 15px; color: var(--muted); letter-spacing: 0.12em; font-weight: 500; }
+.name h1 { margin: 0; font-family: var(--display); font-size: 30px; line-height: 1.15; font-weight: 600; letter-spacing: -0.01em; }
+.role { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+nav a { display: block; padding: 4px 0 4px 12px; border-left: 2px solid var(--rule); color: var(--muted); text-decoration: none; font-size: 14.5px; }
+nav a:hover { color: var(--ink); border-left-color: var(--ink); }
+nav a.on { color: var(--ink); border-left-color: var(--red); font-weight: 600; }
+.contact { display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--muted); }
+.ci { display: flex; align-items: center; gap: 8px; }
+.ci svg { width: 15px; height: 15px; flex: none; color: var(--muted); }
+.email { flex-wrap: wrap; }
+.email code { font-family: var(--body); color: var(--ink); user-select: all; }
+.copy { font: inherit; font-size: 12px; padding: 2px 8px; border: 1px solid var(--rule); background: var(--surface); color: var(--muted); border-radius: 3px; cursor: pointer; }
+.copy:hover { color: var(--ink); border-color: var(--muted); }
+
+main { min-width: 0; display: flex; flex-direction: column; gap: 72px; }
+section { display: flex; flex-direction: column; gap: 24px; scroll-margin-top: 32px; }
+h2 { margin: 0; font-family: var(--display); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+h2::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+h3 { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* About card: white panel with the three-colour mark as a top stripe */
+.intro { position: relative; gap: 14px; padding: 30px 32px 26px; background: var(--card); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.intro::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--yellow) 0 33.33%, var(--red) 33.33% 66.66%, var(--blue) 66.66%); }
+.intro p { margin: 0; font-family: var(--body); font-size: 17px; line-height: 1.65; max-width: 40em; text-wrap: pretty; }
+.intro p.lead { font-size: 18.5px; font-weight: 500; }
+.intro .facts { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13.5px; color: var(--muted); margin-top: 10px; padding-top: 18px; border-top: 1px dashed var(--rule); }
+.intro .facts span { padding: 3px 11px 4px; border-radius: 999px; background: var(--surface); border: 1px solid var(--rule); }
+.intro .facts b { color: var(--ink); font-weight: 600; }
+.intro mark { background: none; color: inherit; }
+.intro .rest { display: flex; flex-direction: column; gap: 14px; }
+
+/* About style variants: add one of style-marker / style-split / style-quote to the section's class; none = the card */
+.intro.style-marker { padding: 0; background: none; border: 0; border-radius: 0; overflow: visible; }
+.intro.style-marker::before { display: none; }
+.intro.style-marker p.lead { font-size: 25px; line-height: 1.4; font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; }
+.intro.style-marker mark { background: linear-gradient(transparent 58%, color-mix(in srgb, var(--yellow) 55%, transparent) 58%); padding: 0 2px; }
+.intro.style-marker p:not(.lead) { color: var(--muted); }
+
+.intro.style-split { display: grid; grid-template-columns: minmax(0,5fr) minmax(0,7fr); gap: 14px 40px; padding: 28px 0 0; background: none; border: 0; border-radius: 0; overflow: visible; }
+.intro.style-split::before { width: 66px; }
+.intro.style-split p.lead { font-family: var(--display); font-size: 26px; line-height: 1.3; font-weight: 600; letter-spacing: -0.015em; }
+.intro.style-split p:not(.lead) { font-size: 15.5px; color: var(--muted); }
+
+.intro.style-quote { padding: 6px 0 6px 26px; background: none; border: 0; border-left: 3px solid var(--red); border-radius: 0; overflow: visible; }
+.intro.style-quote::before { display: none; }
+.intro.style-quote p.lead { font-family: var(--serif); font-size: 26px; line-height: 1.4; font-weight: 400; font-style: italic; }
+.intro.style-quote p:not(.lead) { font-size: 16px; color: var(--muted); }
+
+/* Experience */
+.yr { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tag { font-size: 12.5px; font-weight: 600; padding: 2px 9px 3px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink); background: var(--surface); white-space: nowrap; }
+.tag::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.tag.paper::before { background: var(--red); }
+.tag.poster::before { background: var(--blue); }
+.tag.collab::before { background: var(--yellow); }
+
+/* Citations */
+.cites { display: flex; flex-direction: column; gap: 18px; }
+.cites ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.cites li { padding-left: 18px; text-indent: -18px; max-width: 70ch; font-size: 15.5px; }
+.cites li::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 10px; vertical-align: 1px; }
+.cites .paper li::before { background: var(--red); }
+.cites .pres li::before { background: var(--blue); }
+.me { font-weight: 700; }
+.status { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); margin-left: 6px; text-indent: 0; }
+.legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 13px; color: var(--muted); }
+
+/* Experience */
+.exp { display: flex; flex-direction: column; gap: 28px; }
+.job { display: grid; grid-template-columns: 92px minmax(0,1fr); gap: 20px; }
+.job h4 { margin: 0; font-size: 16.5px; font-weight: 600; }
+.job .sub { color: var(--muted); font-size: 14.5px; margin: 2px 0 6px; }
+.courses { margin: 4px 0 0; padding-left: 18px; color: var(--muted); font-size: 15px; display: flex; flex-direction: column; gap: 3px; }
+.courses b { color: var(--ink); font-weight: 500; }
+.courses .term { white-space: nowrap; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.courses .term::before { content: "· "; }
+.job .duty { margin: 0; color: var(--muted); max-width: 64ch; }
+.work { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.work li { padding-left: 14px; border-left: 2px solid var(--rule); }
+.work .wt { margin: 0; font-size: 15.5px; font-weight: 600; line-height: 1.4; text-wrap: balance; }
+.work .wy { margin-left: 6px; font-size: 13.5px; font-weight: 400; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.work .wd { margin: 3px 0 0; font-size: 15px; color: var(--muted); max-width: 62ch; }
+.work .tags { margin-top: 8px; }
+.work .grant { margin: 4px 0 0; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Writing */
+.writing { display: flex; flex-direction: column; gap: 0; }
+.piece { display: grid; grid-template-columns: 92px minmax(0,1fr) auto; gap: 20px; padding-block: 20px; border-top: 1px solid var(--rule); align-items: baseline; }
+.piece:last-child { border-bottom: 1px solid var(--rule); }
+.piece .t { font-family: var(--serif); font-size: 19px; line-height: 1.4; margin: 0; text-wrap: balance; }
+.piece .orig { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+.piece .note { margin: 8px 0 0; font-size: 14.5px; color: var(--muted); max-width: 60ch; }
+.piece .note b { color: var(--ink); font-weight: 600; }
+.kind { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.lang { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; border: 1px solid var(--rule); border-radius: 3px; padding: 0 5px; margin-left: 6px; color: var(--muted); vertical-align: 2px; font-family: var(--body); }
+
+.groups { display: flex; flex-direction: column; gap: 28px; }
+.block { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.list li { font-size: 15px; display: grid; grid-template-columns: 92px minmax(0,1fr); column-gap: 20px; }
+.list .lt { font-weight: 600; grid-column: 2; }
+.list .ld { color: var(--muted); font-size: 14px; grid-column: 2; }
+.list .when { grid-column: 1; grid-row: 1 / span 2; font-size: 14px; line-height: 1.5; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 1px; }
+
+.skills { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px 40px; }
+.skills dl { margin: 0; }
+.skills dt { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.skills dd { margin: 0; font-size: 15px; }
+
+footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 20px; }
+
+@media (max-width: 860px) {
+  .page { grid-template-columns: minmax(0,1fr); gap: 40px; padding-block: 32px 64px; }
+  aside { position: static; }
+  nav ul { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; }
+  nav a { border-left: 0; padding: 2px 0; border-bottom: 2px solid transparent; }
+  nav a.on { border-bottom-color: var(--red); }
+  main { gap: 56px; }
+}
+@media (max-width: 560px) {
+  .job, .piece { grid-template-columns: minmax(0,1fr); gap: 4px; }
+  .piece .kind { order: -1; }
+  .skills { grid-template-columns: minmax(0,1fr); }
+  .list li { grid-template-columns: minmax(0,1fr); }
+  .list .when, .list .lt, .list .ld { grid-column: 1; grid-row: auto; }
+  .list .when { font-size: 13px; padding-top: 0; }
+  .intro { padding: 24px 20px 20px; }
+  .intro p { font-size: 16px; }
+  .intro p.lead { font-size: 17px; }
+  .intro[class*="style-"] p.lead { font-size: 21px; }
+  .intro.style-split { grid-template-columns: minmax(0,1fr); padding-top: 22px; }
+  .intro.style-quote { padding-left: 18px; }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+
+<div class="page">
+  <aside>
+    <div class="mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="name">
+      <span class="zh" lang="zh-Hant">黃羿文</span>
+      <h1>Yi-Wen Huang</h1>
+    </div>
+    <p class="role">M.Sc. student in Psychology, National Taiwan University.</p>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research">Experience</a></li>
+        <li><a href="#activities">Activities</a></li>
+      </ul>
+    </nav>
+    <div class="contact">
+      <div class="ci email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><code id="mail">hyvv.ujp@gmail.com</code><button class="copy" id="copyMail" type="button">Copy</button></div>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.064 2.064 0 1 1 0-4.128 2.064 2.064 0 0 1 0 4.128zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg><a href="https://www.linkedin.com/in/yvonne-huang-37a86825a/" target="_blank" rel="noopener">LinkedIn</a></div>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><a href="https://github.com/hachiyeee" target="_blank" rel="noopener">GitHub</a></div>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg><a href="https://medium.com/@huangyvonne_46379" target="_blank" rel="noopener">Medium</a></div>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span>Taipei, Taiwan</span></div>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about" class="intro style-split" aria-label="About">
+      <p class="lead">The power of narrative is a fascinating aspect of human cognition.</p>
+      <div class="rest">
+        <p>This is what draws me to the misinformation study in collaboration with the Taiwan FactCheck Center. Earlier, I also used EEG to record what the brain does while it reads.</p>
+        <p>Lately, this curiosity extends to how people think with, trust, and get persuaded by AI.</p>
+        <p>When I’m not doing research, I’m probably at a film screening, crocheting, vibe-coding a side project, or working on my French.</p>
+      </div>
+    </section>
+
+    <section id="publications" class="cites">
+      <h2>Publications &amp; Presentations</h2>
+      <h3>Conference papers</h3>
+      <ol class="paper">
+        <li>Lin, S.-C., <span class="me">Huang, Y.-W.</span>, &amp; Lee, C.-L. (in press). When words arrive fast and EEG responses overlap: Predictive validation of the N400 word-position effect with regularized time-expanded deconvolution. In <i>Proceedings of the <a href="https://paclic2026.github.io/" target="_blank" rel="noopener">Pacific Asia Conference on Language, Information and Computation (PACLIC 2026)</a></i>.<span class="status">Accepted</span></li>
+      </ol>
+      <h3>Conference presentations</h3>
+      <ol class="pres">
+        <li><span class="me">Huang, Y.-W.</span>, &amp; Tseng, P. (2026, June). <i>The development and validation of the Taiwan Misinformation Susceptibility Test (TMIST): A psychometric evaluation</i> [Poster presentation]. <a href="https://www.tpa-tw.org/event-info/2026ya-tai-xin-li-xue-hui-gao-feng-hui-ji-yan-tao-hui-bao-ming-yi-jie-zhi?lang=en" target="_blank" rel="noopener">Asia-Pacific Psychological Association Summit (APPA 2026)</a>, Tainan, Taiwan.</li>
+        <li><span class="me">Huang, Y.-W.</span>, &amp; Lee, C.-L. (2024, October). <i>Exploring the impact of emotion on sentence reading in older adults</i> [Poster presentation]. <a href="https://2024.neurolang.org/">Annual Meeting of the Society for the Neurobiology of Language (SNL 2024)</a>, Brisbane, Australia.</li>
+        <li><span class="me">Huang, Y.-W.</span>, &amp; Lee, C.-L. (2024). <i>Exploring the impact of emotion during sentence reading in older adults</i> [Poster presentation]. <a href="https://linguistics.ntu.edu.tw/resources/cldc">Conference on Language, Discourse, and Cognition (CLDC 2024)</a>, Taipei, Taiwan.</li>
+        <li><span class="me">Huang, Y.-W.</span>, Kuo, Y.-S., Chou, F.-C., Chen, Y.-C., Hsiao, P.-Y., Lin, C., Wu, Y.-J., Pan, H.-J., &amp; Chen, P.-H. (2022, March). <i>Differential impacts of dual identities on Taiwanese affective preferences</i> [Poster presentation]. <a href="https://society-for-affective-science.org/issue-2-august-2022/" target="_blank" rel="noopener">Annual Conference of the Society for Affective Science (SAS 2022)</a>, Virtual conference.</li>
+      </ol>
+    </section>
+
+    <section id="research">
+      <h2>Experience</h2>
+      <div class="exp">
+        <h3>Research Experience</h3>
+        <div class="job">
+          <div class="yr">2024–</div>
+          <div>
+            <h4><a href="https://sites.google.com/view/braincognition/members">Brain &amp; Cognition Lab</a></h4>
+            <p class="sub">Advisor: Philip Tseng</p>
+            <ul class="work">
+              <li>
+                <p class="wt">Taiwan Misinformation Susceptibility Test (TMIST) <span class="wy">2025–</span></p>
+                <p class="wd">M.Sc. thesis. Developing and validating a standardized measure of misinformation susceptibility for Taiwan, with the Taiwan FactCheck Center.</p>
+                <div class="tags"><span class="tag poster">APPA 2026 · Poster</span><span class="tag collab">Taiwan FactCheck Center</span></div>
+              </li>
+              <li>
+                <p class="wt">Political beliefs and truth discernment <span class="wy">2025</span></p>
+                <p class="wd">Survey of 200+ participants on how political belief relates to telling true from false news; regression in R.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="yr">2022–</div>
+          <div>
+            <h4><a href="http://blplab.linguistics.ntu.edu.tw">BLPLab</a></h4>
+            <p class="sub">Advisor: Chia-Lin Charlene Lee</p>
+            <ul class="work">
+              <li>
+                <p class="wt">When words arrive fast: the N400 word-position effect in overlapping EEG <span class="wy">2026</span></p>
+                <p class="wd">Methods follow-up on previous data. At a fast 350&nbsp;ms SOA, word-locked analysis gave a reversed position effect; ridge-regularized time-expanded deconvolution with nested cross-validation recovered the expected N400 reduction at later word positions.</p>
+                <div class="tags"><span class="tag paper">PACLIC 2026 · Paper</span></div>
+              </li>
+              <li>
+                <p class="wt">EEG data collection<span class="wy">2025–2026</span></p>
+                <p class="wd">Collected EEG data from 40+ elder participants for the Core Project in collaboration with Dept. of Physical Therapy.</p>
+              </li>
+              <li>
+                <p class="wt">Emotion and sentence reading in older adults <span class="wy">2023–2024</span></p>
+                <p class="wd">Undergraduate thesis, funded by an NSTC grant. Examined the N400 across word positions in younger and older readers; designed stimuli, recruited participants, and collected EEG.</p>
+                <p class="grant">NSTC 112-2813-C-002-108-H · MOST 111-2410-H-002-232-MY3</p>
+                <div class="tags"><span class="tag poster">SNL 2024 · Poster</span><span class="tag poster">CLDC 2024 · Poster</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="yr">2021–2022</div>
+          <div>
+            <h4><a href="http://chenlaboratory.com">CHENLab</a></h4>
+            <p class="sub">Advisor: Pin-Hao Andy Chen</p>
+            <ul class="work">
+              <li>
+                <p class="wt">Dual identities and affective preferences <span class="wy">2022</span></p>
+                <p class="wd">How Taiwanese identity shapes video preferences. Built experiments in Qualtrics, SurveyMonkey, and PsychoPy; ran participants; analysed data in Python.</p>
+                <div class="tags"><span class="tag poster">SAS 2022 · Poster</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Work Experience</h3>
+        <div class="job">
+          <div class="yr">2026–</div>
+          <div>
+            <h4>Editorial Intern, <a href="https://tfc-taiwan.org.tw/">Taiwan FactCheck Center</a></h4>
+            <p class="sub">Part time in customer service, handling reader inquiries and preliminary fact-checking.</p>
+          </div>
+        </div>
+        <div class="job">
+          <div class="yr">2024–2026</div>
+          <div>
+            <h4>Teaching Assistant, NTU</h4>
+            <ul class="courses">
+              <li><b>General Psychology</b>, Dpt. of Psychology <span class="term">Fall 2025 &amp; Spring 2026</span></li>
+              <li><b>English Writing for Academic Pursuit</b>, Academic Writing Education Center <span class="term">Fall 2024 – Fall 2026</span></li>
+              <li><b>Reading to Connect</b>, Academic Writing Education Center <span class="term">Spring 2024</span></li>
+              <li><b>French (II)</b>, Dpt. of Foreign Languages <span class="term">Fall 2024 &amp; Spring 2025</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="yr">2022–</div>
+          <div>
+            <h4>Event Tutor, EMI-TA Training, Academic Writing Education Center, NTU</h4>
+            <p class="sub">Supported 10+ English-as-a-Medium-of-Instruction training sessions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities">
+      <h2>Activities</h2>
+      <div class="groups">
+        <div class="block">
+          <h3>Film, media &amp; writing</h3>
+          <ul class="list">
+            <li><span class="when">2025–2026</span><span class="lt">Curator, NTU Movie Festival</span><span class="ld">Program curation for the 2025-2026 NTU Movie Festival.</span></li>
+            <li><span class="when">2024–2025</span><span class="lt">Marketing Member, NTU Movie Festival</span><span class="ld">Film curation; Social media editing.</span></li>
+            <li><span class="when">April–May 2026</span><span class="lt">Editorial Volunteer, Taiwan International Documentary Festival (TIDF)</span><span class="ld">Four interviews and write-ups; transcripts and video records of post-screening Q&amp;As.</span></li>
+            <li><span class="when">April–December 2025</span><span class="lt">Marketing Member, <i>Passion Worker</i> (NTU Career Center publication)</span><span class="ld">Alumni interviews and profiles; marketing campaign ideas.</span></li>
+          </ul>
+        </div>
+        <div class="block">
+          <h3>Service &amp; community</h3>
+          <ul class="list">
+            <li><span class="when">2024–2025</span><span class="lt">Volunteer, NTU Mental Institutions Service Club</span><span class="ld">Three service missions, incl. Bali Psychiatric Center and Yuli Hospital.</span></li>
+            <li><span class="when">2021–2022</span><span class="lt">Vice Chair, Academic Association, Dept. of Psychology</span><span class="ld">Weekly discussions and two guest-speaker events.</span></li>
+            <li><span class="when">2020–2021</span><span class="lt">Volunteer, NTU SHANFU Service Club</span><span class="ld">Children's camp mentor, Litu indigenous community.</span></li>
+          </ul>
+        </div>
+        <div class="block">
+          <h3>Awards</h3>
+          <ul class="list">
+            <li><span class="when">2025</span><span class="lt"><a href="https://www.linecorp.com/tw/pr/news/2026/0116/" target="_blank">LINE FRESH</a> · Third place</span><span class="ld">Researched and designed for the LINE GLUE project.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" aria-label="Skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <dl><dt>Analysis</dt><dd>R · Python</dd></dl>
+        <dl><dt>Experiments &amp; surveys</dt><dd>PsychoPy · Qualtrics</dd></dl>
+        <dl><dt>Languages</dt><dd>Mandarin · English (TOEFL 107) · French (DELF B2)</dd></dl>
+        <dl><dt>Creativity</dt><dd>Canva · Final Cut Pro</dd></dl>
+      </div>
+    </section>
+
+    <footer>Last updated October 2026</footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copyMail');
+  var mail = document.getElementById('mail');
+  btn.addEventListener('click', function () {
+    var text = mail.textContent;
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+    var fallback = function () {
+      var r = document.createRange(); r.selectNodeContents(mail);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = 'Selected';
+    };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav a'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && map[e.target.id]) {
+          links.forEach(function (l) { l.classList.remove('on'); });
+          map[e.target.id].classList.add('on');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('main section[id]').forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+
+</body></html>
